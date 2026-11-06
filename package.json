@@ -1,0 +1,14 @@
+{
+  "name": "registro-estudiantes",
+  "version": "1.0.0",
+  "description": "Formulario web que envía datos a un servidor Node.js con Express por GET y POST",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro de estudiantes</title>
+  <style>
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f2f5f7; color: #1d2b36; margin: 0; padding: 2rem 1rem; }
+    main { max-width: 34rem; margin: 0 auto; background: #fff; border: 1px solid #c9d3da; border-radius: 6px; padding: 2rem; }
+    h1 { font-size: 1.5rem; margin-top: 0; }
+    p.ayuda { margin-top: 0; color: #4a5b68; }
+    label { display: block; font-weight: bold; margin-top: 1rem; }
+    input { box-sizing: border-box; width: 100%; padding: .55rem .65rem; margin-top: .3rem; font: inherit; border: 1px solid #8fa0ac; border-radius: 4px; }
+    input:focus, button:focus { outline: 3px solid #7fb2d6; outline-offset: 1px; }
+    .botones { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+    button { font: inherit; font-weight: bold; padding: .65rem 1.2rem; border: 0; border-radius: 4px; color: #fff; cursor: pointer; }
+    .post { background: #1b5e8c; }
+    .get { background: #2f7d57; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Registro de estudiantes</h1>
+    <p class="ayuda">Todos los campos son obligatorios. Elige cómo enviarlos al servidor.</p>
+
+    <!-- Por defecto envía por POST; el segundo botón cambia a GET con formaction y formmethod -->
+    <form action="/registro-post" method="post">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" autocomplete="given-name" required minlength="2" maxlength="50">
+
+      <label for="apellido">Apellido</label>
+      <input type="text" id="apellido" name="apellido" autocomplete="family-name" required minlength="2" maxlength="50">
+
+      <label for="edad">Edad</label>
+      <input type="number" id="edad" name="edad" min="1" max="120" step="1" required>
+
+      <label for="correo">Correo electrónico</label>
+      <input type="email" id="correo" name="correo" autocomplete="email" required maxlength="100">
+
+      <label for="programa">Programa académico</label>
+      <input type="text" id="programa" name="programa" required minlength="2" maxlength="80">
+
+      <div class="botones">
+        <button type="submit" class="post">Enviar por POST</button>
+        <button type="submit" class="get" formaction="/registro-get" formmethod="get">Enviar por GET</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
